@@ -6,7 +6,8 @@ var config = require("./pref")
 var server = http.createServer((req, res) => {
 	if (req.method === "GET") {
 		var url = req.url.replace(/%20/gi, " ")
-		var filePath = path.join(__dirname, "../" + config.content, url)
+
+		var filePath = path.join(__dirname, "../" + config.content, url.replace(config.serverdir, ""))
 
 		if (filePath.split(".").reverse()[0] !== "pdf") {
 			fs.readdir(filePath, (err, files) => {
