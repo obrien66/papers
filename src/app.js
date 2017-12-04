@@ -21,9 +21,15 @@ var server = http.createServer((req, res) => {
 				}
 				else {
 					res.writeHead(200, {"content-type": "text/html"})
-					var parent = filePath.split("/").reverse()[1]
 					files = files.map(item => {
-						return `<li><a href="${config.serverdir}/item}">${item}</a></li>`
+						var parent = filePath.split("/").reverse()[0]
+						if (parent === config.content) {
+							parent = ""
+						}
+						else {
+							parent = parent + "/"
+						}
+						return `<li><a href="${config.serverdir}/${parent}${item}">${item}</a></li>`
 					}).join("")
 
 					var greet = url
