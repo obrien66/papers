@@ -1,0 +1,23 @@
+{
+  "name": "papers",
+  "version": "1.0.0",
+  "description": "All the IB papers I can get my hands on",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obrien66/papers.git"
+  },
+  "author": "Nicholas O'Brien <nicholas.obrien@ucc.on.ca> (http://obrien.tech)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/obrien66/papers/issues"
+  },
+  "homepage": "https://github.com/obrien66/papers#readme",
+  "dependencies": {
+    "glob": "^7.1.2"
+  }
+}
