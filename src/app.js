@@ -6,8 +6,8 @@ var config = require("./pref")
 var server = http.createServer((req, res) => {
 	var styles = fs.readFileSync(__dirname + "/master.css", "utf8").replace(/\n|\t/g, "")
 	if (req.method === "GET") {
-		var url = req.url.replace(/%20/gi, " ").replace(config.serverdir, "")
-		var filePath = path.join(__dirname, "../" + config.content, url)
+		var url = req.url.replace(/%20/gi, " ").replace(config.content, "")
+		var filePath = path.join(__dirname, "../" /*+ config.content*/, url)
 
 		if (filePath.split(".").reverse()[0] !== "pdf") {
 			fs.readdir(filePath, (err, files) => {
