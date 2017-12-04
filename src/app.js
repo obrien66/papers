@@ -17,13 +17,13 @@ var server = http.createServer((req, res) => {
 						<style>${styles}</style>
 						<h1>404: File not found</h1>
 						<p><code>${url}</code> requested</p>${err.message}</p>
-						<a href="/">home page</a>`)
+						<a href="/${config.serverdir}">home page</a>`)
 				}
 				else {
 					res.writeHead(200, {"content-type": "text/html"})
 					var parent = filePath.split("/").reverse()[1]
 					files = files.map(item => {
-						return `<li><a href="${filePath.split("/").reverse()[0] + "/" + item}">${item}</a></li>`
+						return `<li><a href="${config.serverdir}/${filePath.split("/").reverse()[0] + "/" + item}">${item}</a></li>`
 					}).join("")
 
 					var greet = req.url !== "/" ? url : "Homepage"
@@ -33,7 +33,7 @@ var server = http.createServer((req, res) => {
 					`)
 					res.end(`
 						<ul>${files}</ul>
-						<a href="/">home page</a>
+						<a href="/${config.serverdir}">home page</a>
 					`)
 				}
 			});
