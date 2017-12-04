@@ -1,0 +1,11 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a:hover {
+	color: #c41b45;
+}
